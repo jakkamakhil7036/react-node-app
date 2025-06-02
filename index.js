@@ -22,5 +22,6 @@ app.get("",(req,res)=>{
         {name:"product 2",price:35},
         {name:"product 3",price:36},
         
-    ]res.json(products)
+    ];
+    res.json(products);
 })
