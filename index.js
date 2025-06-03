@@ -1,7 +1,9 @@
 import express from "express";
+import mongoose from "mongoose";
 import cors from "cors";
 const app = express();
 app.listen(8080, () => {
+  mongoose.connect("mongodb://localhost:27017/gcet");
   console.log("Server Started");
 });
 app.use(cors());
