@@ -26,6 +26,15 @@ app.post("/register", async (req, res) => {
   return res.json(result);
 });
 
+app.post("/login", async (req, res) => {
+  const {email,pass}=req.body;
+  
+  const result = await user.insert({ email,pass });
+  if(!result)return res.json({message:"Invalid user or password"})
+  
+  return res.json(result);
+});
+
 app.get("/greet", (req, res) => {
   res.send("Greetings");
 });
