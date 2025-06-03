@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
   return res.send("Good Morning");
 });
 
-app.get("/register", async (req, res) => {
+app.post("/register", async (req, res) => {
   const {name}=req.body
   const result = await user.insertOne({ name: name });
   return res.json(result);
