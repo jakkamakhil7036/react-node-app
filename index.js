@@ -10,7 +10,7 @@ app.listen(8080, () => {
 const userSchema = mongoose.Schema({
   name: { type: String },
 });
-const user = mongoose.model("User,userSchema");
+const user = mongoose.model("User",userSchema);
 
 app.use(cors());
 app.use(express.json())
