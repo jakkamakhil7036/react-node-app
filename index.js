@@ -13,6 +13,7 @@ const userSchema = mongoose.Schema({
 const user = mongoose.model("User,userSchema");
 
 app.use(cors());
+app.use(express.json())
 app.get("/", (req, res) => {
   return res.send("Good Morning");
 });
