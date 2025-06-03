@@ -1,27 +1,31 @@
-import express from 'express'
-const app=express()
-app.listen(800,()=>{
-    console.log("screen Stated");
+import express from "express";
+import cors from "cors";
+const app = express();
+app.listen(8080, () => {
+  console.log("Server Started");
 });
-app.get("/",(req,res)=>{
-    return res.send("hello world");
-});
-app.get("/greet",(req,res)=>{
-    return res.send("hello world");
-});
-app.get("/name",(req,res)=>{
-    return res.send("hello ");
-});
-app.get("/weather",(req,res)=>{
-    return res.send("akhil ");
+app.use(cors());
+app.get("/", (req, res) => {
+  return res.send("Good Morning");
 });
 
-app.get("",(req,res)=>{
-    const products=[
-        {name:"product 1",price:34},
-        {name:"product 2",price:35},
-        {name:"product 3",price:36},
-        
-    ];
-    res.json(products);
-})
+app.get("/greet", (req, res) => {
+  res.send("Greetings");
+});
+
+app.get("/name", (req, res) => {
+  res.send("Akhil");
+});
+
+app.get("/weather", (req, res) => {
+  res.send("hello world");
+});
+
+app.get("/products", (req, res) => {
+  const products = [
+    { name: "Product 1", price: 34 },
+    { name: "Product 2", price: 64 },
+    { name: "Product 3", price: 45 },
+  ];
+  res.json(products);
+});
