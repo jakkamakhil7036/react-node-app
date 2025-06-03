@@ -11,6 +11,10 @@ const userSchema = mongoose.Schema({
   name: { type: String },
 });
 const user = mongoose.model("User",userSchema);
+const productSchema=mongoose.Schema({
+  name:{type:String},
+  price:{type:Number},
+})
 
 app.use(cors());
 app.use(express.json())
@@ -32,6 +36,14 @@ app.post("/login", async (req, res) => {
   const result = await user.insert({ email,pass });
   if(!result)return res.json({message:"Invalid user or password"})
   
+  return res.json(result);
+});
+
+app.post("/products", async (req, res) => {
+  const {name,price}=req.body;
+  
+  const result = await user.insert({ name,price });
+ 
   return res.json(result);
 });
 
