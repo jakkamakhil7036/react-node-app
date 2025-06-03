@@ -35,7 +35,7 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
   const {email,pass}=req.body;
   
-  const result = await user.insert({ email,pass });
+  const result = await user.create({ email,pass });
   if(!result)return res.json({message:"Invalid user or password"})
   
   return res.json(result);
