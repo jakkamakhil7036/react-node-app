@@ -15,6 +15,7 @@ const productSchema=mongoose.Schema({
   name:{type:String},
   price:{type:Number},
 })
+const Product=mongoose.model("Product",productSchema)
 
 app.use(cors());
 app.use(express.json())
@@ -25,7 +26,8 @@ app.get("/", (req, res) => {
 app.post("/register", async (req, res) => {
   const {name,email,address}=req.body;
   
-  const result = await user.insert({ name: name,email:email,address:address });
+  const result =await user.create({ name, email, address });
+
  
   return res.json(result);
 });
@@ -39,10 +41,10 @@ app.post("/login", async (req, res) => {
   return res.json(result);
 });
 
-app.post("/products", async (req, res) => {
+app.post("/Products", async (req, res) => {
   const {name,price}=req.body;
   
-  const result = await user.insert({ name,price });
+  const result = await Product.create({ name, price });
  
   return res.json(result);
 });
