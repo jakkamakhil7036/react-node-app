@@ -19,8 +19,10 @@ app.get("/", (req, res) => {
 });
 
 app.post("/register", async (req, res) => {
-  const {name}=req.body
-  const result = await user.insertOne({ name: name });
+  const {name,email,address}=req.body;
+  
+  const result = await user.insert({ name: name,email:email,address:address });
+ 
   return res.json(result);
 });
 
