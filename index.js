@@ -3,16 +3,16 @@ const app=express()
 app.listen(800,()=>{
     console.log("screen Stated");
 });
-app.gcet("/",(req,res)=>{
+app.get("/",(req,res)=>{
     return res.send("hello world");
 });
-app.gcet("/greet",(req,res)=>{
+app.get("/greet",(req,res)=>{
     return res.send("hello world");
 });
-app.gcet("/name",(req,res)=>{
+app.get("/name",(req,res)=>{
     return res.send("hello ");
 });
-app.gcet("/weather",(req,res)=>{
+app.get("/weather",(req,res)=>{
     return res.send("akhil ");
 });
 
