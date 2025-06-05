@@ -18,12 +18,13 @@ const MONGODB_URI =`mongodb+srv://${DBUSER}:${DBPASS}@cluster0.qjxhv.mongodb.net
 
 // const MONGO_URI = process.env.MONGO_URI
 //testing
+
 app.use("/users", userRouter);
 app.use("/products", productRouter);
 app.use("/orders",orderRouter)
 
 mongoose
-  .connect(MONGO_URI)
+  .connect(MONGODB_URI)
   .then(() => {
     app.listen(8080, () => {
       console.log("Server Started on port 8080");
